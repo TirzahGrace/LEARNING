@@ -106,9 +106,9 @@
     - Multiple mail servers can send mail to the single mail server at the same  time.
     - Even if multiple users write to the same user at the same time, the system handles it seamlessly.
 
-### Function Descriptions
+## Function Descriptions
 
-## popserver.c
+### popserver.c
 
 1. **`sendCommand(int Socket, const char *command)`**
 
