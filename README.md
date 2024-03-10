@@ -11,7 +11,17 @@
      - popserver.c
      - user.txt
      - for user{i} in user.txt: create a folder named with username { eg: user1, user2 } in the SERVER directory.
-           
+     - **Server Directory Structure:**
+         ```
+         SERVER
+         ├── smtpmail.c
+         ├── popserver.c
+         ├── user.txt
+         ├── user1
+         ├── user2
+         ├── user3
+         └── ...
+         ```     
 3. Compile the SMTP server:
 
     ```bash
@@ -91,5 +101,9 @@
 - Authentication is checked for managing mails.
 - Mails are listed with the following information:
     -  Sl. No. <Sender’s email id> <When received, in date : hour : minute> <Subject>
+- **Handled Multiple Users:**
+    - Multiple users can connect to the same mail server to access their mailboxes.
+    - Multiple mail servers can send mail to the single mail server at the same  time.
+    - Even if multiple users write to the same user at the same time, the system handles it seamlessly.
 
 ---
