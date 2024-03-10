@@ -45,9 +45,9 @@
 1. Download the code zip file and extract it.
 
 2. CLIENT  {folder}
-        - mailclient.c
+   - mailclient.c
 
-3. Compile the mail client:
+4. Compile the mail client:
 
     ```bash
     cd path/to/client/folder
@@ -60,9 +60,9 @@
     ./client <server_IP> <smtp_port> <pop3_port>
     ```
 
-4. The client will prompt for a username and password. Enter the login details.
+5. The client will prompt for a username and password. Enter the login details.
 
-5. The client will show three options:
+6. The client will show three options:
    - 1. Manage Mail
    - 2. Send Mail
    - 3. Quit
