@@ -7,11 +7,11 @@
 1. Download the code zip file and extract it.
 
 2. SERVER  {folder}
-     -> smtpmail.c
-     -> popserver.c
-     -> user.txt
-     for user{i} in user.txt:
-        create a folder named with username { eg: user1, user2 } in the SERVER directory.
+     - smtpmail.c
+     - popserver.c
+     - user.txt
+     - for user{i} in user.txt:
+        -- create a folder named with username { eg: user1, user2 } in the SERVER directory.
            
 3. Compile the SMTP server:
 
@@ -46,7 +46,7 @@
 1. Download the code zip file and extract it.
 
 2. CLIENT  {folder}
-        -> mailclient.c
+        - mailclient.c
 
 3. Compile the mail client:
 
