@@ -159,5 +159,5 @@
    - **Note:**
       - The main function runs in an infinite loop, continuously accepting client connections and forking processes to handle them.
 
-This `popserver.c` implementation follows the POP3 protocol for a simple mail server, handling commands from the client and managing user mailboxes.
+     This `popserver.c` implementation follows the POP3 protocol for a simple mail server, handling commands from the client and managing user mailboxes.
 ---
