@@ -77,6 +77,7 @@
 - **Send Mail:**
     - Sends mail to another user.
     - Both the sender and receiver must exist in `user.txt`.
+    - Both login user_name and from user_name should match.
     - No authentication check (password check) occurs here.
 
 - **Quit:**
@@ -89,9 +90,6 @@
 - Authentication is not checked for sending mail.
 - Authentication is checked for managing mails.
 - Mails are listed with the following information:
-    - Serial Number
-    - Sender's email id
-    - Received timestamp (date : hour : minute)
-    - Subject
+    -  Sl. No. <Sender’s email id> <When received, in date : hour : minute> <Subject>
 
 ---
