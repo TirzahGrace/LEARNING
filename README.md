@@ -201,4 +201,45 @@
    - **Note:**
       - The main function runs in an infinite loop, continuously accepting client connections and forking processes to handle them.
 
+
+### mailclient.c
+
+1. **`validateEmailFormat(char *email)` function:**
+   - Validates the format of an email address using a regular expression.
+   - Returns 0 for a valid format, non-zero for an invalid format.
+
+2. **`sendMail(int smtpSocket, const char *saved_username)` function:**
+   - Sends an email using SMTP commands.
+   - Collects necessary details from the user (From, To, Subject, and Message).
+   - Validates the email format.
+   - Communicates with the SMTP server using various SMTP commands.
+   - Validates the length of the subject and the number of lines in the message.
+   - Sends the email content to the SMTP server.
+   - Handles the acknowledgment and termination of the SMTP session.
+
+3. **`sendCommand(int Socket, const char *command)` function:**
+   - Sends a command to the server using the specified socket.
+
+4. **`receiveResponse(int Socket, char *buffer)` function:**
+   - Receives a response from the server and stores it in the buffer.
+
+5. **`ManageMail(int pop3Socket, const char *saved_username, const char *saved_password)` function:**
+   - Manages emails using POP3 commands.
+   - Connects to the POP3 server and authenticates the user.
+   - Lists the available emails and allows the user to view and delete them.
+   - Implements functionalities like listing mails, retrieving mail content, and deleting mails.
+   - Handles user input to navigate through the mail management system.
+   - Communicates with the POP3 server using various POP3 commands.
+   - Supports quitting the mail management system.
+
+6. **`main(int argc, char *argv[])` function:**
+   - Takes the server IP, SMTP port, and POP3 port as command-line arguments.
+   - Creates sockets for SMTP and POP3 connections.
+   - Connects to the SMTP and POP3 servers.
+   - Takes the user's username and password.
+   - Displays a menu for managing and sending emails, including options to quit the program.
+
+    - **Note:**
+        - Ensure that the SMTP and POP3 servers are running and accessible at the specified IP addresses and ports before  running this client.
 ---
+
