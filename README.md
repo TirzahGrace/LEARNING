@@ -10,8 +10,7 @@
      - smtpmail.c
      - popserver.c
      - user.txt
-     - for user{i} in user.txt:
-     -    create a folder named with username { eg: user1, user2 } in the SERVER directory.
+     - for user{i} in user.txt: create a folder named with username { eg: user1, user2 } in the SERVER directory.
            
 3. Compile the SMTP server:
 
