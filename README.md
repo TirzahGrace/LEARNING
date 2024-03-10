@@ -159,5 +159,46 @@
    - **Note:**
       - The main function runs in an infinite loop, continuously accepting client connections and forking processes to handle them.
 
-     This `popserver.c` implementation follows the POP3 protocol for a simple mail server, handling commands from the client and managing user mailboxes.
+### smtpmail.c
+
+1. **`sendCommand(int Socket, const char *command)`**
+
+   - **Parameters:**
+      - `Socket`: The socket descriptor.
+      - `command`: The command to be sent to the client.
+
+   - **Description:**
+      - Sends a command to the connected client using the specified socket.
+
+2. **`handleClient(int clientSocket, in_addr_t serv_addr)`**
+
+   - **Parameters:**
+      - `clientSocket`: The socket descriptor for the connected client.
+      - `serv_addr`: The IP address of the SMTP server.
+
+   - **Description:**
+      - Handles the SMTP protocol communication with the client, managing the email sending process.
+      - The function continuously listens for commands from the client and responds accordingly.
+      - Manages the `START`, `HELO`, `MAIL FROM`, `RCPT TO`, `DATA`, and `QUIT` commands.
+      - Cross-checks sender and recipient against the `user.txt` file to verify their existence.
+      - Appends the email content to the recipient's mailbox file.
+      - Sends appropriate responses to the client based on the commands received.
+      - Handles the acknowledgment of the received message.
+
+3. **`main(int argc, char *argv[])`**
+
+   - **Parameters:**
+      - `argc`: The number of command-line arguments.
+      - `argv`: An array of command-line arguments.
+
+   - **Description:**
+      - The main function responsible for setting up the SMTP server.
+      - Parses the command-line arguments to get the port number for the server.
+      - Creates a socket, binds it to the specified port, and starts listening for incoming connections.
+      - Accepts incoming client connections and forks a new process to handle each client.
+      - Uses the `handleClient` function to manage the communication with each connected client.
+
+   - **Note:**
+      - The main function runs in an infinite loop, continuously accepting client connections and forking processes to handle them.
+
 ---
