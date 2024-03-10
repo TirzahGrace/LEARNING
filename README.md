@@ -106,4 +106,58 @@
     - Multiple mail servers can send mail to the single mail server at the same  time.
     - Even if multiple users write to the same user at the same time, the system handles it seamlessly.
 
+### Function Descriptions
+
+## popserver.c
+
+1. **`sendCommand(int Socket, const char *command)`**
+
+   - **Parameters:**
+      - `Socket`: The socket descriptor.
+      - `command`: The command to be sent to the client.
+
+   - **Description:**
+      - Sends a command to the connected client using the specified socket.
+
+2. **`receiveResponse(int Socket, char *buffer)`**
+
+   - **Parameters:**
+      - `Socket`: The socket descriptor.
+      - `buffer`: A character array to store the received response.
+
+   - **Description:**
+      - Receives a response from the connected client using the specified socket and stores it in the provided buffer.
+
+3. **`handleClient(int clientSocket, in_addr_t addr)`**
+
+   - **Parameters:**
+      - `clientSocket`: The socket descriptor for the connected client.
+      - `addr`: The IP address of the connected client.
+
+   - **Description:**
+      - Handles the POP3 protocol communication with the client, managing user authentication, processing commands, and handling mailbox operations.
+      - The function continuously listens for commands from the client and responds accordingly.
+      - Manages user authentication using the provided username and password.
+      - Handles the `LIST`, `RETR`, `DELE`, and `QUIT` commands.
+      - Manages a lock file to ensure that only one process can access the mailbox at a time.
+      - Performs mailbox operations such as listing mails, retrieving mails, and deleting mails based on client commands.
+      - The function ensures proper error handling and responds to the client accordingly.
+
+4. **`main(int argc, char *argv[])`**
+
+   - **Parameters:**
+      - `argc`: The number of command-line arguments.
+      - `argv`: An array of command-line arguments.
+
+   - **Description:**
+      - The main function responsible for setting up the POP3 server.
+      - Parses the command-line arguments to get the port number for the server.
+      - Creates a socket, binds it to the specified port, and starts listening for incoming connections.
+      - Accepts incoming client connections and forks a new process to handle each client.
+      - Uses the `handleClient` function to manage the communication with each connected client.
+
+   - **Note:**
+      - The main function runs in an infinite loop, continuously accepting client connections and forking processes to handle them.
+
+This `popserver.c` implementation follows the POP3 protocol for a simple mail server, handling commands from the client and managing user mailboxes.
 ---
